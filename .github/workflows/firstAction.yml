@@ -2,7 +2,7 @@ name: Node CI
 
 on:
   schedule:
-    - cron: 2 * * * *
+    - cron: 28 * * * *
 
 jobs:
   validate-all-tasks:
@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
+      - uses: actions/typescript-action@v1
       - run: |
           cd checker
           npm ci
