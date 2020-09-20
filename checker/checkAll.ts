@@ -9,5 +9,5 @@ for (let i = 0; i < 10; ++i) {
   });
 }
 if (!ok) {
-  process.exit(1);
+  throw "Error";
 }
