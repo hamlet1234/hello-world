@@ -1,0 +1,19 @@
+name: Node CI
+
+on:
+  schedule:
+    - cron: 25,27,29,31 * * * *
+
+jobs:
+  validate-all-tasks:
+    name: Validate All Tasks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: |
+          cd checker
+          npm ci
+          ts-node checkAll
