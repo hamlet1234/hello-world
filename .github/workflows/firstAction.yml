@@ -2,7 +2,7 @@ name: Node CI
 
 on:
   schedule:
-    - cron: 28 * * * *
+    - cron: 40 * * * *
 
 jobs:
   validate-all-tasks:
@@ -13,9 +13,8 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - uses: actions/typescript-action@v1
       - run: |
           cd checker
           npm ci
-          npm install ts-node
+          npm install -D ts-node
           ts-node checkAll.ts
