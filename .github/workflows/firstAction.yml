@@ -18,4 +18,5 @@ jobs:
           cd checker
           npm ci
           npm install -g ts-node
+          npm i @types/node
           ts-node checkAll.ts
