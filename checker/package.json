@@ -1,6 +1,6 @@
 {
   "name": "validate",
-  "version": "10.15.3",
+  "version": "1.0.0",
   "description": "",
   "main": "checkAll.ts",
   "dependencies": {
