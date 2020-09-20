@@ -16,4 +16,5 @@ jobs:
       - run: |
           cd checker
           npm ci
+          npm install ts-node
           ts-node checkAll.ts
