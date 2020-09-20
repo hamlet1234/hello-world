@@ -2,7 +2,7 @@ name: Node CI
 
 on:
   schedule:
-    - cron: 25,27,29,31 * * * *
+    - cron: 35,37,39 * * * *
 
 jobs:
   validate-all-tasks:
@@ -16,4 +16,4 @@ jobs:
       - run: |
           cd checker
           npm ci
-          ts-node checkAll
+          ts-node checkAll.ts
