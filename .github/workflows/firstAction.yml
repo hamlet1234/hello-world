@@ -2,7 +2,7 @@ name: Node CI
 
 on:
   schedule:
-    - cron: 06 * * * *
+    - cron: 15,17,19 * * * *
 
 jobs:
   validate-all-tasks:
