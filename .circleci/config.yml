@@ -8,15 +8,18 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - run: cd checker
-      - run: ls -l
+      - run:
+          command: |
+            cd checker
+            npm ci
+            ts-node checkAll.ts
 
 workflows:
   version: 2
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "46 * * * *"
+          cron: "51 * * * *"
           filters:
             branches:
               only:
