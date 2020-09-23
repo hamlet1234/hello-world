@@ -9,15 +9,14 @@ jobs:
     steps:
       - checkout
       - run: cd checker
-      - run: npm ci
-      - run: ts-node checkAll.ts
+      - run: ls -l
 
 workflows:
   version: 2
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "41 * * * *"
+          cron: "46 * * * *"
           filters:
             branches:
               only:
