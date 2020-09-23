@@ -5,7 +5,7 @@ orbs:
 jobs:
   build:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: circleci/node:10
     steps:
       - checkout
       - run: cd checker
@@ -17,7 +17,7 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "30 * * * *"
+          cron: "41 * * * *"
           filters:
             branches:
               only:
