@@ -17,10 +17,10 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "12 * * * *"
+          cron: "04 * * * *"
           filters:
             branches:
               only:
-                - master
+                - newBranch
     jobs:
       - build
