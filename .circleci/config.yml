@@ -11,3 +11,16 @@ jobs:
             cd checker
             npm ci
             ts-node checkAll.ts
+
+workflows:
+  version: 2
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "57 * * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - build
