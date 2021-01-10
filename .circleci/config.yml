@@ -11,8 +11,8 @@ jobs:
             cd checker
             echo "Some Line" > /tmp/newfile.txt
       - persist_to_workspace:
-          root: checker
-          path: /tmp/newfile.txt
+          root: workspace
+          path: /checker/tmp/newfile.txt
 
   test:
     docker:
