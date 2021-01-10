@@ -8,8 +8,10 @@ jobs:
       - checkout
       - run:
           command: |
+            cd checker
             echo "Some Line" > /tmp/newfile.txt
-      - store_artifacts:
+      - persist_to_workspace:
+          root: /checker
           path: /tmp/newfile.txt
 
   test:
@@ -17,6 +19,8 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - attach_workspace:
+          at: /checker/tmp
       - run:
           command: |
             cd tmp
