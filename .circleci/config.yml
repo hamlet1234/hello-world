@@ -8,12 +8,9 @@ jobs:
       - checkout
       - run:
           command: |
-            cd checker
-            mkdir tmp
-            cd tmp
-            echo "Some Line" > newfile.txt
+            echo "Some Line" > /tmp/newfile.txt
       - store_artifacts:
-          path: /checker/tmp/newfile.txt
+          path: /tmp/newfile.txt
 
   test:
     docker:
@@ -22,7 +19,6 @@ jobs:
       - checkout
       - run:
           command: |
-            cd checker
             cd tmp
             cat newfile.txt
 
