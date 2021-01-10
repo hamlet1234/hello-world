@@ -9,6 +9,7 @@ jobs:
       - run:
           command: |
             cd checker
+            mkdir tmp
             cd tmp
             echo "Some Line" > newfile.txt
       - store_artifacts:
