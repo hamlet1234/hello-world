@@ -9,6 +9,22 @@ jobs:
       - run:
           command: |
             cd checker
-            touch newfile.txt
+            echo "Some Line" > newfile.txt
             npm ci
             ts-node checkAll.ts
+  test:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          command: |
+            cd checker
+            cat newfile.txt
+
+workflows:
+  version: 2
+  commit-workflow:
+    jobs:
+      - build
+      - test
