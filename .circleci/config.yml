@@ -9,5 +9,6 @@ jobs:
       - run:
           command: |
             cd checker
+            touch newfile.txt
             npm ci
             ts-node checkAll.ts
