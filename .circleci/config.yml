@@ -4,7 +4,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:10
-    working_directory: /checker/tmp
     steps:
       - checkout
       - run:
@@ -12,6 +11,9 @@ jobs:
             cd checker
             cd tmp
             echo "Some Line" > newfile.txt
+      - store_artifacts:
+          path: /checker/tmp
+
   test:
     docker:
       - image: circleci/node:10
