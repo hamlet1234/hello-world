@@ -12,7 +12,7 @@ jobs:
             echo "Some Line" > /tmp/newfile.txt
       - persist_to_workspace:
           root: checker
-          path: /tmp/newfile.txt
+          path: tmp/newfile.txt
 
   test:
     docker:
