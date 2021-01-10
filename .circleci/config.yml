@@ -8,7 +8,7 @@ jobs:
       - checkout
       - persist_to_workspace:
           root: checker
-          path: tmp/newfile.txt
+          path: tmp
       - run:
           command: |
             cd checker
