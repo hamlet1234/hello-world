@@ -27,4 +27,6 @@ workflows:
   commit-workflow:
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build
