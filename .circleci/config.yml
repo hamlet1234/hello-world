@@ -13,7 +13,7 @@ jobs:
             cd tmp
             echo "Some Line" > newfile.txt
       - store_artifacts:
-          path: /checker/tmp
+          path: /checker/tmp/newfile.txt
 
   test:
     docker:
