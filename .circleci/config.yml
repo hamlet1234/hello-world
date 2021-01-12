@@ -25,6 +25,7 @@ jobs:
           at: checker/tmp
       - run:
           command: |
+            cd checker
             cd tmp
             cat newfile.txt
 
