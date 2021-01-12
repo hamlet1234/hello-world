@@ -9,7 +9,8 @@ jobs:
       - run:
           command: |
             cd checker
-            echo "Some Line" > /tmp/newfile.txt
+            cd tmp
+            echo "Some Line" > newfile.txt
       - persist_to_workspace:
           root: checker
           path:
