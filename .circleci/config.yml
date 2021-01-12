@@ -13,7 +13,7 @@ jobs:
             echo "Some Line" > newfile.txt
       - persist_to_workspace:
           root: checker/tmp
-          path:
+          paths:
             - newfile.txt
 
   test:
