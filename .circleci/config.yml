@@ -12,9 +12,9 @@ jobs:
             mkdir tmp
             echo "Some Line" > tmp/newfile.txt
       - persist_to_workspace:
-          root: checker/tmp
+          root: .
           paths:
-            - newfile.txt
+            - *
 
   test:
     docker:
@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: checker/tmp
+          at: .
       - run:
           command: |
             cd checker
@@ -33,7 +33,11 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - build
+      - build:
+          name: b1
+      - build:
+          name: b2
       - test:
           requires:
-            - build
+            - b1
+            - b2
