@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  build1:
     docker:
       - image: circleci/node:10
     steps:
@@ -16,6 +16,20 @@ jobs:
           paths:
             - .
 
+  build2:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          command: |
+            cd checker
+            mkdir tmp
+            echo "Some Other Line" > tmp/newfile.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
   test:
     docker:
       - image: circleci/node:10
@@ -33,9 +47,9 @@ workflows:
   version: 2
   commit-workflow:
     jobs:
-      - build:
-          name: b1
+      - build1
+      - build2
       - test:
           requires:
-            - b1
-      
+            - build1
+            - build2
