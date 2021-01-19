@@ -10,7 +10,7 @@ jobs:
           command: |
             cd checker
             npm install
-            ts-node checkAll.ts
+            npm run validate
 
 workflows:
   version: 2
