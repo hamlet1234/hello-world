@@ -9,47 +9,11 @@ jobs:
       - run:
           command: |
             cd checker
-            mkdir tmp
-            echo "Some Line" > tmp/newfile.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-
-  build2:
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - run:
-          command: |
-            cd checker
-            mkdir tmp
-            echo "Some Other Line" > tmp/newfile.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-  test:
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run:
-          command: |
-            cd checker
-            cd tmp
-            cat newfile.txt
+            npm install
+            ts-node checkAll.ts
 
 workflows:
   version: 2
   commit-workflow:
     jobs:
       - build1
-      - build2
-      - test:
-          requires:
-            - build1
-            - build2
