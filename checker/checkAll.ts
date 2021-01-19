@@ -1,7 +1,7 @@
 //const { exec } = require('child_process');
 let ok = true;
 
-for (let i = 0; i < 100; ++i) {
+for (let i = 0; i < 500; ++i) {
 /*  exec('ts-node check.ts', (error, stdout, stderr) => {
     if (error) {
       console.log(i);
