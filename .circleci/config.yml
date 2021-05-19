@@ -8,6 +8,8 @@ jobs:
       - checkout
       - run:
           command: |
+            git config --global user.email hamlet.mikaelyan@codesignal.com
+            git config --global user.name "Hamlet"
             git rebase origin/master
             cd checker
             npm install
