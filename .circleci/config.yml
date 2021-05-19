@@ -10,9 +10,7 @@ jobs:
           command: |
             git config --global user.email hamlet.mikaelyan@codesignal.com
             git config --global user.name "Hamlet"
-            git fetch origin
-            git merge origin/master
-            git rebase --continue
+            git rebase origin/master
             echo 'hello'
             cd checker
             npm install
