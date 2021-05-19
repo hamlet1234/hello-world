@@ -8,8 +8,10 @@ jobs:
       - checkout
       - run:
           command: |
-            echo 'aaaa'
             git pull origin newBranch
+            cd checker
+            npm install
+            npm run validate
 
 workflows:
   version: 2
