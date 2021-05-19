@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
+            echo 'hello'
             cd checker
             npm install
             npm run validate
