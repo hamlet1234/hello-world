@@ -8,7 +8,7 @@ for (let i = 0; i < 50; ++i) {
       ok = false;
     }
   });*/
-  console.log(i + 1);
+  console.log(i + 2);
 }
 
 if (!ok) {
