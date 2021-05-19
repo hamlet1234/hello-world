@@ -12,6 +12,7 @@ jobs:
             git config --global user.name "Hamlet"
             git fetch origin
             git merge origin/master
+            git rebase --continue
             echo 'hello'
             cd checker
             npm install
