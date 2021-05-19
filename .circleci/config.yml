@@ -8,9 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
-            cd checker
-            npm install
-            npm run validate
+            git pull origin newBranch
 
 workflows:
   version: 2
