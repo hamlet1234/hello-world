@@ -8,7 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
-            git pull origin newBranch
+            git rebase origin/master
             cd checker
             npm install
             npm run validate
