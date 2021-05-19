@@ -11,6 +11,7 @@ jobs:
             git config --global user.email hamlet.mikaelyan@codesignal.com
             git config --global user.name "Hamlet"
             git rebase origin/master
+            echo 'hello'
             cd checker
             npm install
             npm run validate
