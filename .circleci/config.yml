@@ -1,17 +1,17 @@
 version: 2.1
 
-orbs:
-  git: pagerduty/git@0.0.3
-
 jobs:
   build1:
     docker:
       - image: circleci/node:10
     steps:
       - checkout
-      - rebase_on_master
       - run:
           command: |
+            git fetch origin master
+            git config --global user.email "hamlet.mikaelyan@codesignal.com"
+            git config --global user.name "Hamlet"
+            git rebase origin/master
             echo 'hello'
             cd checker
             npm install
