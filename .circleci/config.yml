@@ -18,3 +18,13 @@ workflows:
   commit-workflow:
     jobs:
       - build1
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "10 * * * *"
+          filters:
+            branches:
+              only:
+                - validationBranch
+    jobs:
+      - build1
