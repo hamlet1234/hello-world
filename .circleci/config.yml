@@ -21,11 +21,10 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "42 * * * *"
+          cron: "50 * * * *"
+    jobs:
+      - build1:
           filters:
             branches:
               only:
-                - master
                 - validationBranch
-    jobs:
-      - build1
