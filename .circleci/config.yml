@@ -8,7 +8,6 @@ jobs:
       - checkout
       - run:
           command: |
-            git fetch origin master
             echo 'hello'
             cd checker
             npm install
@@ -22,11 +21,10 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          # runs every sunday and wednesday at 00:00
-          cron: "0 * * * *"
+          cron: "26 * * * *"
           filters:
             branches:
               only:
-                - validationBranch
+                - master
     jobs:
       - build1
