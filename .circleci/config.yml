@@ -1,4 +1,7 @@
-version: 2
+version: 2.1
+
+orbs:
+  git: pagerduty/git@0.0.3
 
 jobs:
   build1:
@@ -6,6 +9,7 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - rebase_on_master
       - run:
           command: |
             echo 'hello'
