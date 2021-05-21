@@ -8,6 +8,10 @@ jobs:
       - checkout
       - run:
           command: |
+            git fetch origin master
+            git config --global user.email "hamlet.mikaelyan@codesignal.com"
+            git config --global user.name "Hamlet"
+            git rebase origin/master
             echo 'hello'
             cd checker
             npm install
@@ -21,7 +25,7 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "10 * * * *"
+          cron: "13 * * * *"
           filters:
             branches:
               only:
