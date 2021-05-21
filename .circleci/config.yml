@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 jobs:
   build1:
@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run:
           command: |
+            git fetch origin master
             echo 'hello'
             cd checker
             npm install
@@ -16,5 +17,16 @@ jobs:
 workflows:
   version: 2
   commit-workflow:
+    jobs:
+      - build1
+  schedule-workflow:
+    triggers:
+      - schedule:
+          # runs every sunday and wednesday at 00:00
+          cron: "0 * * * *"
+          filters:
+            branches:
+              only:
+                - validationBranch
     jobs:
       - build1
