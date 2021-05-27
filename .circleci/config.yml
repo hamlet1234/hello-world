@@ -8,6 +8,10 @@ jobs:
       - checkout
       - run:
           command: |
+            git fetch origin master
+            git config --global user.email "hamlet.mikaelyan@codesignal.com"
+            git config --global user.name "Hamlet"
+            git pull --no-commit && git commit -m "Merge"
             echo 'hello'
             cd checker
             npm install
