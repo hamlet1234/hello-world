@@ -32,18 +32,4 @@ workflows:
   commit-workflow:
     jobs:
       - build1
-      - build2
-  schedule-workflow:
-    triggers:
-      - schedule:
-          cron: "4,6,8,10,12 * * * *"
-          filters:
-            branches:
-              only:
-                - validationBranch
-    jobs:
-      - build1:
-          filters:
-            branches:
-              only:
-                - validationBranch
+
