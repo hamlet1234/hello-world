@@ -14,12 +14,25 @@ jobs:
             cd checker
             npm install
             npm run validate
+  build2:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo 'hello'
+            cd checker
+            npm install
+            npm run validate
+
 
 workflows:
   version: 2
   commit-workflow:
     jobs:
       - build1
+      - build2
   schedule-workflow:
     triggers:
       - schedule:
