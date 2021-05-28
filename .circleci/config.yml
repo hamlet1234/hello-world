@@ -9,8 +9,6 @@ jobs:
       - run:
           command: |
             git fetch origin master
-            git config --global user.email "hamlet.mikaelyan@codesignal.com"
-            git config --global user.name "Hamlet"
             git merge origin/master
             echo 'hello'
             cd checker
@@ -25,7 +23,7 @@ workflows:
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "49,51,53 * * * *"
+          cron: "56 * * * *"
           filters:
             branches:
               only:
