@@ -1,5 +1,10 @@
 version: 2.1
 
+circleci_all: &circleci_all
+  filters:
+    branches:
+      only: circleci-all
+
 jobs:
   build1:
     docker:
@@ -32,4 +37,11 @@ workflows:
   commit-workflow:
     jobs:
       - build1
-
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "16 * * * *"
+          <<: *circleci_all
+    jobs:
+      - build1:
+          <<: *circleci_all
